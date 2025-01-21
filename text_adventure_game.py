@@ -7,7 +7,7 @@ and tries to find their way to safty.
 
 import random
 points= 0
-#important variables
+#important variables:
 HP = 10
 IQ = 100
 money = 10
@@ -27,46 +27,26 @@ def game_over(points):
     return points
 
 def intro_art(): # art to start the game off
-    print("""XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+:;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx::+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;:::::::xXXXXXXXXXX+:::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+::::::::::XXXXXXXXXXXX;:::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+::::::::::XXXXXXXXXXXXXXXX:::;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX::::::::::XXXXXXXXXXXXXXXXXXX::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:::::::::::::xXXXXXXXXXXXXXXXXXX::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+:::::::x::::::XXXXXXXXXXXXXXXXXx::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+:::xXXXX::::::XXXXXXXXXXXXXXXX:::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxXXXXXXXx::::::XXXXXXXXXXXXXXX::::;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+::::::XXXXXXXXXXXXX:::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;::::::XXXXXXXXXXX:::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX::::::;XXXXXXXXX:::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX::::::+XXXXXXX:::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX::::::xXXXX:::::xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx::::::xX::::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;::::+XXXXXXXXXXXXX+:::::::::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx::::::::::xXXXXXXXXXXXX:::::::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:::::XXX::::::::;+xxx;::::::::::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+::::;XXXXXXX;:::::::::::::::::::::::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+:::::XXXXXXXXXXXXx:::::::::::::xXX+:::::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;:::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;:::::;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX+:::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX::::XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX""")
+    print("""%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*=+*%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%#%%%%%*-:=*%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%*=:::-=#%%%*-:-#%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%#=:::::*%%%%%%*-:-#%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%=:-*+::=#%%%%%*-:=%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%+-:-*%%%*-:=#%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*-:-**=::=%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%*=+::=#%%%%*:::::=%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%*-:=**-:::::::::::*%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%#=:-*%%%%%*++++**%*-:-+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#=*%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%""")
 
 
 
@@ -104,6 +84,9 @@ def appartment_Z1():
                 print("\nyou check the pantry, you have no food...")
                 print("-1 Hunger\n")
                 hunger -= 1
+                if hunger == 0:
+                    print("Bread...")
+                    game_over()
                 Update_stats()
                 
             else: #if you are lucky you get this
@@ -155,47 +138,23 @@ def neighbor(SC, neighbor): #neighbor interaction
         
     else: #if you have a good neighbor
         print("you see your neighbor")
-        greet = int(input("\ndo you:\n1.) Greet them\n2.) Ignore them\n"))
-        
-        if greet == 1: #if you greet them
-            print("Glory to Velandria.\n+10 Social Credit\n")
-            SC += 10
-            Update_stats()
-        elif greet == 2: #if you ignore them
-            print("'Glory to Velandria!' they say to you. you ignored them\n-10 Social Credit\n")
-            SC -= 10
-            Update_stats()
+        while True:
+                    greet = int(input("\ndo you:\n1.) Greet them\n2.) Ignore them\n"))
+                    
+                    if greet == 1: #if you greet them
+                        print("Glory to Velandria.\n+10 Social Credit\n")
+                        SC += 10
+                        Update_stats()
+                        break
+                    elif greet == 2: #if you ignore them
+                        print("'Glory to Velandria!' they say to you. you ignored them\n-10 Social Credit\n")
+                        SC -= 10
+                        Update_stats()
+                        break
+                    else:
+                        print("invalid input, try again")
+                        continue
     return SC, neighbor #returns stats to global
-    
-    
-def home_Z3(): #needs to be up here so the next function can call it
-        # takes a players choice from finale to decide their choice, with going to bed ending the game
-            global SC, hunger
-            while True: #keeps it going until they go to bed
-                finale = int(input("now that its night its time to:\n1.) Watch TV\n2.) eat dinner\n3.) Go to bed\n"))
-                if finale == 1:
-                   #1 to watch TV
-                    print("We are winning the war for the motherland, our hand is strong and ste-\nyou dont have the attention span for that\n+10 Social Credit\n")
-                    SC += 10
-                    Update_stats()
-                    continue
-                
-                elif finale == 2:
-                   #2 to eat dinner
-                    print("you eat some soup and bread. Its not good but its better than nothing\n+10 Hunger\n")
-                    hunger += 10
-                    Update_stats()
-                    continue
-                
-                elif finale == 3:
-                    #3 to go to bed
-                    print("You get into bed, ready to have another amazing state provided day tommorow.\n")
-                    game_over(points)
-                    break
-                
-                else:  #lets player retry if they misinput an option
-                    print("invalid input, Please try again\n")
-                    continue
             
             
 def outside_Z2(): #the big one
@@ -332,10 +291,11 @@ def outside_Z2(): #the big one
             if snitch == 1:
                 print("you go to unlock your door. your neighbors door has caution tape all over it")
                 home_Z3()
-            
+                break
             else:
                 print("you unlock your door and enter your state provided apartment")
                 home_Z3()
+                break
         
     else: # if you missinput on where to go
         print("you should probably go to work")
@@ -356,13 +316,41 @@ def outside_Z2(): #the big one
                 home_Z3()
             
     return SC, HP, IQ, hunger, safe, snitch
-        
+ 
+ 
+def home_Z3(): #going back to your apartment, end of the game
+            global SC, hunger
+            while True: #keeps it going until they go to bed
+                finale = int(input("now that its night its time to:\n1.) Watch TV\n2.) eat dinner\n3.) Go to bed\n"))
+                if finale == 1:
+                   #1 to watch TV
+                    print("We are winning the war for the motherland, our hand is strong and ste-\nyou dont have the attention span for that\n+10 Social Credit\n")
+                    SC += 10
+                    Update_stats()
+                    continue
+                
+                elif finale == 2:
+                   #2 to eat dinner
+                    print("you eat some soup and bread. Its not good but its better than nothing\n+10 Hunger\n")
+                    hunger += 10
+                    Update_stats()
+                    continue
+                
+                elif finale == 3:
+                    #3 to go to bed
+                    print("You get into bed, ready to have another amazing state provided day tommorow.\n")
+                    game_over(points)
+                    break
+                
+                else:  #lets player retry if they misinput an option
+                    print("invalid input, Please try again\n")
+                    continue       
         
 def Main(): #function that accually plays the game
     name = str(input("what is your name? "))
     description = str(input("Describe yourself "))
     print(f"\nWow! what an incredible character.\nUnfortunately we dont chose who we are in this world, {name}")
-    while True:
+    for i in range(1):
         SC = waking_up()
         SC, hunger, IQ = appartment_Z1()
         if SC <= 0:
@@ -373,6 +361,7 @@ def Main(): #function that accually plays the game
             print("You walk outside your appartment,",end = "")
         neighbor(SC, neighbor)
         SC, hunger, IQ, HP, safe, snitch = outside_Z2()
+
 #play the game
 print("Welcome Commrade, to The Peoples Dream")
 print(intro_art())
